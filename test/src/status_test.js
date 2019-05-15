@@ -10,4 +10,16 @@ describe("status - /", function(){
                 done();
             }).catch(done);
     });
+
+    it("404", function(done){
+        mock.onGet('/').reply(404);
+        vuuptMocked
+            .status()
+            .then(function(result){
+                expect(result.status_code).to.eql(404);
+                expect(result.success).to.eql(false);
+                expect(Object.keys(result)).to.include('message');
+                done();
+            }).catch(done);
+    });
 });

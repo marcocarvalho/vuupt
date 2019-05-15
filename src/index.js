@@ -14,14 +14,27 @@ function VuuptApi(opts){
     }
 }
 
+function driverOptions(opts){
+    opts = Object.assign({}, opts || {});
+
+    return Object.assign({}, {
+        baseURL: opts.baseUrl,
+        timeout: 2000,
+        headers: { 'Authorization': 'api_key ' + opts.apiKey }
+    });
+};
+VuuptApi.driverOptions = driverOptions;
+VuuptApi.defaultOptions = defaultOptions;
+
+
 VuuptApi.prototype.getInstance = function(){
     if(this.instance) { return this.instance; }
 
-    this.instance = axios.create({
-        baseURL: this.options.baseUrl,
-        timeout: 2000,
-        headers: { 'Authorization': 'api_key ' + this.options.apiKey }
-    });
+    var driver = this.options.driver || axios;
+
+    this.instance = driver.create(
+        driverOptions({ apiKey: this.options.apiKey, baseUrl: this.options.baseUrl })
+    );
 
     return this.instance;
 };
@@ -33,7 +46,7 @@ VuuptApi.prototype.status = function(){
             .get('/')
             .then((result) => result.data)
             .catch(function(err) {
-                return { success: false, message: err };
+                return { success: false, message: err, status_code: err.response.status };
             })
     );
 };

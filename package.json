@@ -1,10 +1,10 @@
 {
   "name": "vuupt",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Vuupt integration",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "keywords": [
     "vuupt",
@@ -13,6 +13,7 @@
   "author": "Marco Carvalho",
   "license": "ISC",
   "devDependencies": {
+    "axios-mock-adapter": "^1.16.0",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "mocha": "^6.1.4"
