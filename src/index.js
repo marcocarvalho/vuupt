@@ -56,8 +56,14 @@ VuuptApi.prototype.geocode = function(address){
         this
             .getInstance()
             .get('/utilities/map/geocode', { params: { address: address }})
-            .then((result) => result.data)
-            .catch((err) => err.response.data)
+            .then(function(result) {
+                return {
+                    success: true,
+                    response: result.data
+                };
+            }).catch(function(err) {
+                return Object.assign({success: false}, err.response.data);
+            })
     );
 };
 
