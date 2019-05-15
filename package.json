@@ -1,0 +1,25 @@
+{
+  "name": "vuupt",
+  "version": "1.0.0",
+  "description": "Vuupt integration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vuupt",
+    "integration"
+  ],
+  "author": "Marco Carvalho",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^6.1.4"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "dotenv-safe": "^6.1.0",
+    "eslint": "^5.16.0"
+  }
+}
