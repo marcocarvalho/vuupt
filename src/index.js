@@ -112,4 +112,93 @@ VuuptApi.prototype.removeCustomer = function(id){
         .catch(errorDealer);
 };
 
+
+// Services
+
+VuuptApi.prototype.newService = function(service){
+    return this
+        .getInstance()
+        .post('/services', service)
+        .then(successDealer)
+        .catch(errorDealer);
+};
+
+VuuptApi.prototype.getService = function(id){
+    return this
+        .getInstance()
+        .get('/services/'+id)
+        .then(successDealer)
+        .catch(errorDealer);
+};
+
+VuuptApi.prototype.updateService = function(service){
+    return this
+        .getInstance()
+        .put('/services/'+service.id, service)
+        .then(successDealer)
+        .catch(errorDealer);
+};
+
+VuuptApi.prototype.removeService = function(id){
+    return this
+        .getInstance()
+        .delete('/services/'+id)
+        .then(successDealer)
+        .catch(errorDealer);
+};
+
+
+// vehicles
+
+VuuptApi.prototype.newVehicle = function(vehicle){
+    return this
+        .getInstance()
+        .post('/vehicles', vehicle)
+        .then(successDealer)
+        .catch(errorDealer);
+};
+
+VuuptApi.prototype.getVehicle = function(id){
+    return this
+        .getInstance()
+        .get('/vehicles/'+id)
+        .then(successDealer)
+        .catch(errorDealer);
+};
+
+VuuptApi.prototype.updateVehicle = function(service){
+    return this
+        .getInstance()
+        .put('/vehicles/'+service.id, service)
+        .then(successDealer)
+        .catch(errorDealer);
+};
+
+VuuptApi.prototype.removeVehicle = function(id){
+    return this
+        .getInstance()
+        .delete('/vehicles/'+id)
+        .then(successDealer)
+        .catch(errorDealer);
+};
+
+
+// route-optimization
+
+VuuptApi.prototype.newRoute = function(route){
+    return this
+        .getInstance()
+        .post('/route-optimization', route)
+        .then(successDealer)
+        .catch(errorDealer);
+};
+
+VuuptApi.prototype.getRoute = function(id){
+    return this
+        .getInstance()
+        .get('/route-optimization/'+id)
+        .then(successDealer)
+        .catch(errorDealer);
+};
+
 module.exports = VuuptApi;
