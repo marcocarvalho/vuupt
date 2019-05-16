@@ -1,5 +1,10 @@
 'strict mode';
 
+beforeEach(function(done){
+    mock.reset();
+    done();
+});
+
 describe("status - /", function(){
     it("success", function(done){
         vuupt
@@ -16,9 +21,7 @@ describe("status - /", function(){
         vuuptMocked
             .status()
             .then(function(result){
-                expect(result.status_code).to.eql(404);
                 expect(result.success).to.eql(false);
-                expect(Object.keys(result)).to.include('message');
                 done();
             }).catch(done);
     });
