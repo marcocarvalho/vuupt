@@ -3,7 +3,7 @@
 const axios = require('axios');
 
 const defaultOptions = {
-    baseUrl: 'https://api.vuupt.com/api/v1/',
+    baseUrl: process.env.VUUPT_API_URL || 'https://api.vuupt.com/api/v1/',
     apiKey: process.env.VUUPT_API_KEY
 };
 
