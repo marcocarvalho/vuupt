@@ -158,6 +158,16 @@ VuuptApi.prototype.newVehicle = function(vehicle){
         .catch(errorDealer);
 };
 
+VuuptApi.prototype.getVehicles = function(opts){
+    var params = {};
+    if(opts) params.params = opts;
+    return this
+        .getInstance()
+        .get('/vehicles', params)
+        .then(successDealer)
+        .catch(errorDealer);
+};
+
 VuuptApi.prototype.getVehicle = function(id){
     return this
         .getInstance()
