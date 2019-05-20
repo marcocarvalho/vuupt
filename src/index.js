@@ -203,6 +203,14 @@ VuuptApi.prototype.newRoute = function(route){
         .catch(errorDealer);
 };
 
+VuuptApi.prototype.saveRoute = function(routeDescriptor) {
+    return this
+        .getInstance()
+        .post('/routes', routeDescriptor)
+        .then(successDealer)
+        .catch(errorDealer);
+};
+
 VuuptApi.prototype.getRoute = function(id){
     return this
         .getInstance()
