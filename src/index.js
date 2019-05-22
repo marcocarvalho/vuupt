@@ -131,6 +131,22 @@ VuuptApi.prototype.getService = function(id){
         .catch(errorDealer);
 };
 
+VuuptApi.prototype.assignService = function(serviceId, agentId){
+    return this
+        .getInstance()
+        .put('/services/' + serviceId + '/assign-agent/' + agentId)
+        .then(successDealer)
+        .catch(errorDealer);
+};
+
+VuuptApi.prototype.unassignService = function(serviceId){
+    return this
+        .getInstance()
+        .put('/services/' + serviceId + '/unassign-agent')
+        .then(successDealer)
+        .catch(errorDealer);
+};
+
 VuuptApi.prototype.updateService = function(service){
     return this
         .getInstance()
