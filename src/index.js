@@ -165,7 +165,7 @@ VuuptApi.prototype.removeService = function(id){
 
 // Agents
 
-VuuptApi.prototype.getAgents = function(){
+VuuptApi.prototype.getAgents = function(opts){
     var params = {};
     if(opts) params.params = opts;
     return this
