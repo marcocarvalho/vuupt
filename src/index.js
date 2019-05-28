@@ -163,6 +163,18 @@ VuuptApi.prototype.removeService = function(id){
         .catch(errorDealer);
 };
 
+// Agents
+
+VuuptApi.prototype.getAgents = function(){
+    var params = {};
+    if(opts) params.params = opts;
+    return this
+        .getInstance()
+        .get('/agents', params)
+        .then(successDealer)
+        .catch(errorDealer);
+};
+
 
 // vehicles
 
