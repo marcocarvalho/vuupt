@@ -1,6 +1,7 @@
 'use strict';
 
 const axios = require('axios');
+const path = require('path');
 
 const defaultOptions = {
     baseUrl: process.env.VUUPT_API_URL || 'https://api.vuupt.com/api/v1/',
@@ -42,6 +43,7 @@ VuuptApi.prototype.getInstance = function(){
     return this.instance;
 };
 
+
 function successDealer(result){
     // console.log("\n\n\n\n\n\n\n\n\n\n--------------------------------------");
     // console.log('successDealer');
@@ -77,6 +79,15 @@ VuuptApi.prototype.geocode = function(address){
             .then(successDealer)
             .catch(errorDealer)
     );
+};
+
+
+VuuptApi.prototype.vuuptRouteLinkUrl = function(id){
+    if(this.options.baseURL.indexOf('sandbox') === -1){
+        return `http://sandbox.vuupt.com/manager/routes/${id}`;
+    } else {
+        return `https://app.vuupt.com/manager/routes/${id}`;
+    }
 };
 
 VuuptApi.prototype.newCustomer = function(client){
